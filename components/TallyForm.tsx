@@ -1,38 +1,47 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { CONTACT } from '@/lib/site';
 
 type Props = {
   /** Identifiant Tally (ex. "wMxAbC"). Par défaut : NEXT_PUBLIC_TALLY_FORM_ID. */
   formId?: string;
-  /** Ou un lien complet de partage / d’intégration Tally. */
+  /** Ou le lien complet du formulaire Tally (NEXT_PUBLIC_TALLY_URL). */
   url?: string;
   title?: string;
   minHeight?: number;
+  /** id d’ancre : un seul formulaire « principal » par page. */
+  anchor?: string;
 };
 
 const FORM_ID = process.env.NEXT_PUBLIC_TALLY_FORM_ID || '';
+const FORM_URL = process.env.NEXT_PUBLIC_TALLY_URL || '';
+
+/** Transforme un lien de partage Tally (tally.so/r/ID) en lien d’intégration. */
+function embed(url: string) {
+  const m = url.match(/tally\.so\/(?:r|embed)\/([A-Za-z0-9]+)/);
+  const base = m ? `https://tally.so/embed/${m[1]}` : url;
+  return `${base}${base.includes('?') ? '&' : '?'}alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
+}
 
 /**
- * Conteneur responsive du formulaire Tally.
- * - Sans identifiant : affiche un emplacement sobre, prêt à recevoir le formulaire.
- * - Avec identifiant : iframe chargée à l’approche de l’écran, hauteur dynamique.
+ * Formulaire Tally dans un conteneur responsive (chargé à l’approche de l’écran).
+ * Sans lien configuré, propose le téléphone ou le courriel s’ils sont renseignés.
  */
 export default function TallyForm({
   formId = FORM_ID,
-  url,
+  url = FORM_URL,
   title = 'Demande d’expertise gratuite',
-  minHeight = 640,
+  minHeight = 560,
+  anchor = 'demande',
 }: Props) {
   const box = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const src =
-    url ||
-    (formId
-      ? `https://tally.so/embed/${encodeURIComponent(
-          formId,
-        )}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`
-      : '');
+  const src = url
+    ? embed(url)
+    : formId
+      ? `https://tally.so/embed/${encodeURIComponent(formId)}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`
+      : '';
 
   useEffect(() => {
     const el = box.current;
@@ -55,7 +64,7 @@ export default function TallyForm({
   }, [src]);
 
   return (
-    <div className="tally" id="demande" ref={box} style={{ minHeight }}>
+    <div className="tally" id={anchor} ref={box} style={{ minHeight }}>
       {src && visible ? (
         <iframe
           src={src}
@@ -68,13 +77,27 @@ export default function TallyForm({
         />
       ) : (
         <div className="tally__placeholder">
-          <p className="tally__kicker">Formulaire Tally</p>
           <p className="tally__title">{title}</p>
           <p className="tally__text">
             {src
               ? 'Chargement du formulaire…'
-              : 'Le formulaire de demande s’affiche ici : décrivez votre objet et joignez vos photographies.'}
+              : 'Pour une demande d’expertise, appelez-nous ou écrivez-nous en décrivant votre objet.'}
           </p>
+          {!src && (CONTACT.phone || CONTACT.email) && (
+            <p className="tally__text">
+              {CONTACT.phone && (
+                <a className="ulink" href={CONTACT.phoneHref}>
+                  {CONTACT.phone}
+                </a>
+              )}
+              {CONTACT.phone && CONTACT.email && ' · '}
+              {CONTACT.email && (
+                <a className="ulink" href={`mailto:${CONTACT.email}`}>
+                  {CONTACT.email}
+                </a>
+              )}
+            </p>
+          )}
         </div>
       )}
     </div>

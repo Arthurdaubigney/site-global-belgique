@@ -3,9 +3,9 @@ import { IMG } from '@/lib/images';
 import { pageMetadata } from '@/lib/site';
 
 export const metadata = pageMetadata({
-  title: 'Antiquaire en Flandre : Anvers, Gand, Bruges, Knokke',
+  title: 'Estimation et rachat d’antiquités à domicile en Flandre',
   description:
-    'Antiquaire en Flandre : estimation de tableaux flamands et de mobilier ancien, rachat et succession à Anvers, Gand, Bruges et Knokke. Expert à domicile.',
+    'Estimation gratuite et rachat d’antiquités et de tableaux. Nous nous déplaçons à domicile à Anvers, Gand, Bruges, Louvain, Knokke-Le Zoute et en Flandre.',
   path: '/flandre/',
   image: '/img/tableaux-1200.jpg',
 });
@@ -14,26 +14,24 @@ export default function Page() {
   return (
     <RegionPage
       slug="flandre"
-      kicker="Flandre"
-      title={<>Antiquaire en Flandre&nbsp;: <em>tableaux flamands, mobilier et rachat</em></>}
-      lede="Anvers, Gand, Bruges, Courtrai, Louvain, Knokke-Le Zoute : nous estimons et rachetons vos objets d’art, avec une vraie connaissance de l’école flamande."
+      where="en Flandre"
+      title={<>Estimation et rachat d’antiquités <em>à domicile en Flandre</em></>}
+      lede="Anvers, Gand, Bruges, Courtrai, Louvain, Knokke-Le Zoute : nous nous déplaçons chez vous pour estimer et racheter vos objets d’art et vos tableaux."
       intro={[
-        'La Flandre est le berceau de la peinture flamande et d’un artisanat d’art exceptionnel : tableaux, tapisseries, argenterie anversoise, mobilier de style, objets d’église.',
-        'Nous travaillons avec des experts qui connaissent ce marché et nous déplaçons dans les cinq provinces flamandes, pour les villas de la côte comme pour les maisons de ville.',
+        'La Flandre est le berceau de la peinture flamande : tableaux, tapisseries, argenterie, mobilier de style et objets d’art s’y transmettent de génération en génération.',
+        'Nous nous déplaçons dans les cinq provinces flamandes, des villas de la côte aux maisons de ville, pour vous donner une estimation gratuite et, si l’objet nous intéresse, vous proposer un rachat.',
       ]}
-      zonesTitle="Anvers, Gand, Bruges, Knokke : un expert dans chaque grande ville"
       zones={[
-        { name: 'Anvers et Malines', text: 'Maisons de ville, hôtels particuliers : tableaux flamands, argenterie, mobilier, collections.' },
-        { name: 'Gand, Bruges et Courtrai', text: 'Demeures patriciennes et maisons de campagne : estimation, succession et rachat.' },
-        { name: 'Knokke-Le Zoute et la côte', text: 'Villas et résidences : mobilier, tableaux modernes, horlogerie, objets d’art.' },
+        { name: 'Anvers et Malines', text: 'Nous nous déplaçons dans les maisons de ville et hôtels particuliers.' },
+        { name: 'Gand, Bruges et Courtrai', text: 'Nous nous déplaçons dans les demeures patriciennes et maisons de campagne.' },
+        { name: 'Knokke-Le Zoute et la côte', text: 'Nous nous déplaçons dans les villas et résidences du littoral.' },
       ]}
       img={IMG.tableaux}
       faq={[
-        { q: 'Estimez-vous les tableaux de l’école flamande ?', a: 'Oui. Nous examinons les peintures flamandes et hollandaises anciennes comme les œuvres belges du XIXe et du XXe siècle, et nous vérifions signatures, cachets et provenance.' },
-        { q: 'Intervenez-vous à Anvers, Gand et Bruges ?', a: 'Oui, dans les cinq provinces flamandes : Anvers, Flandre-Orientale, Flandre-Occidentale, Limbourg et Brabant flamand.' },
-        { q: 'Pouvez-vous échanger en néerlandais ?', a: 'Nous répondons en français et en anglais. Pour un entretien en néerlandais, précisez-le dans votre demande : nous organisons la visite avec un interlocuteur néerlandophone.' },
+        { q: 'Avez-vous un bureau en Flandre ?', a: 'Non. Nous n’avons ni boutique ni bureau en Belgique : nous nous déplaçons à votre domicile.' },
+        { q: 'Estimez-vous les tableaux de l’école flamande ?', a: 'Oui. Nous examinons les peintures flamandes et hollandaises anciennes comme les œuvres belges du XIXe et du XXe siècle : signature, support, provenance.' },
+        { q: 'Dans quelles villes vous déplacez-vous ?', a: 'Dans toute la Flandre, notamment à Anvers, Gand, Bruges, Courtrai, Louvain, Malines et Knokke-Le Zoute.' },
       ]}
-      ctaTitle="Faites estimer vos objets en Flandre"
     />
   );
 }

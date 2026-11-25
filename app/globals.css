@@ -794,6 +794,7 @@ a.region:hover {
   padding: var(--s8) var(--s7);
 }
 .tally__kicker {
+  display: none;
   font-size: 0.74rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1094,5 +1095,92 @@ a.region:hover {
   }
   [data-enter] > * {
     opacity: 1;
+  }
+}
+
+/* ---------- Téléphone, bandeau cookies, boutons texte ---------- */
+.nav__phone {
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t) var(--ease);
+}
+.nav__phone:hover {
+  border-color: currentColor;
+}
+.callbtn {
+  display: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+  margin-left: auto;
+  margin-right: var(--s3);
+  transition: background var(--t) var(--ease), transform 160ms var(--ease);
+}
+.callbtn:active {
+  transform: scale(0.96);
+}
+.linkbtn {
+  background: none;
+  border: 0;
+  padding: 0 0 2px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.consent {
+  position: fixed;
+  left: var(--s5);
+  right: var(--s5);
+  bottom: var(--s5);
+  z-index: 80;
+  max-width: 720px;
+  margin-inline: auto;
+  display: grid;
+  gap: var(--s4);
+  padding: var(--s5);
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  box-shadow: 0 24px 60px -30px rgba(23, 21, 15, 0.5);
+  font-size: 0.88rem;
+}
+.consent__actions {
+  display: flex;
+  gap: var(--s3);
+  justify-content: flex-end;
+}
+.contact__phone {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.intro-form {
+  padding-block: 0 var(--s8);
+}
+@media (max-width: 960px) {
+  .callbtn {
+    display: grid;
+  }
+  .nav__phone {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 640px) {
+  .consent__actions .btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .logo__sub {
+    display: none;
   }
 }

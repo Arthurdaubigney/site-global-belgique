@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { CTA, NAV_MAIN, REGIONS } from '@/lib/site';
+import { CONTACT, CTA, NAV_MAIN, REGIONS } from '@/lib/site';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -45,14 +45,14 @@ export default function Header() {
         <a className="skip-link" href="#contenu">
           Aller au contenu
         </a>
-        <Link href="/" className="logo" aria-label="Maison Antiquaire de Belgique — accueil">
+        <Link href="/" className="logo" aria-label="Maison Antiquaire — accueil">
           <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" className="logo__mark">
             <rect x="1" y="1" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1" />
             <path d="M8 24 16 7l8 17M11 18h10" fill="none" stroke="currentColor" strokeWidth="1.2" />
           </svg>
           <span className="logo__text">
             <span className="logo__name">Maison Antiquaire</span>
-            <span className="logo__sub">de Belgique</span>
+            <span className="logo__sub">Estimation à domicile</span>
           </span>
         </Link>
 
@@ -102,11 +102,29 @@ export default function Header() {
               </Link>
             </li>
           </ul>
+          {CONTACT.phone && (
+            <a href={CONTACT.phoneHref} className="nav__phone" aria-label={`Appeler le ${CONTACT.phone}`}>
+              {CONTACT.phone}
+            </a>
+          )}
           <Link href={CTA.href} className="btn btn--solid btn--sm nav__cta">
             <span>Expertise gratuite</span>
           </Link>
         </nav>
 
+        {CONTACT.phone && (
+          <a href={CONTACT.phoneHref} className="callbtn" aria-label={`Appeler le ${CONTACT.phone}`}>
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path
+                d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
+        )}
         <button className="burger" aria-expanded={open} aria-controls="menu" onClick={() => setOpen((o) => !o)}>
           <span className="sr">{open ? 'Fermer le menu' : 'Ouvrir le menu'}</span>
           <i />

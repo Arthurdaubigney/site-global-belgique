@@ -4,13 +4,11 @@ import Button from './Button';
 import { CTA } from '@/lib/site';
 
 export default function PageHero({
-  kicker,
   title,
   lede,
   crumbs,
   cta = true,
 }: {
-  kicker: string;
   title: ReactNode;
   lede: string;
   crumbs: { name: string; path: string }[];
@@ -20,7 +18,6 @@ export default function PageHero({
     <section className="hero hero--page" aria-labelledby="page-title">
       <div className="hero__text" data-enter>
         <Breadcrumb items={crumbs} />
-        <p className="kicker">{kicker}</p>
         <h1 id="page-title">{title}</h1>
         <p className="lede">{lede}</p>
         {cta && (

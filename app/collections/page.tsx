@@ -10,9 +10,9 @@ import { CTA, pageMetadata } from '@/lib/site';
 const PATH = '/collections/';
 
 export const metadata = pageMetadata({
-  title: 'Tableaux, mobilier, argenterie, horlogerie : nos domaines',
+  title: 'Tableaux, mobilier, argenterie, horlogerie : estimation',
   description:
-    'Nous expertisons et rachetons tableaux anciens, mobilier ancien, argenterie, horlogerie, porcelaines et pièces de collection dans toute la Belgique.',
+    'Estimation et rachat de tableaux anciens, mobilier ancien, argenterie, horlogerie, porcelaines et pièces de collection, à domicile en Belgique.',
   path: PATH,
   image: '/img/tableaux-1200.jpg',
 });
@@ -26,7 +26,7 @@ const SECTIONS = [
     ratio: '4/3',
     text: [
       'Natures mortes, paysages, portraits, scènes de genre : l’école flamande et hollandaise du XVIIe siècle, mais aussi la peinture belge du XIXe et les œuvres modernes.',
-      'Nous examinons le support, la touche, les signatures, les cachets de collection et l’historique des ventes pour situer chaque tableau.',
+      'Nous examinons le support, la touche, les signatures et l’historique des ventes pour situer chaque tableau.',
     ],
     points: ['Huiles, aquarelles, dessins, gravures', 'Écoles flamande, hollandaise et belge', 'Cadres anciens et dorures'],
   },
@@ -37,10 +37,10 @@ const SECTIONS = [
     img: IMG.mobilier,
     ratio: '4/3',
     text: [
-      'Commodes, secrétaires, bureaux, cabinets, sièges et tables, du XVIIe siècle à l’Art nouveau, y compris le mobilier mosan et flamand.',
-      'L’estampille, le placage, la marqueterie, les bronzes et les restaurations déterminent la valeur : nous les relevons un à un.',
+      'Commodes, secrétaires, bureaux, cabinets, sièges et tables, du XVIIe siècle à l’Art nouveau.',
+      'L’estampille, le placage, la marqueterie, les bronzes et les restaurations influencent la valeur : nous les relevons un à un.',
     ],
-    points: ['Estampilles et signatures d’ébénistes', 'Marqueterie, bronzes dorés, marbres', 'Boiseries et éléments d’architecture'],
+    points: ['Estampilles et signatures', 'Marqueterie, bronzes dorés, marbres', 'Boiseries et éléments anciens'],
   },
   {
     id: 'argenterie',
@@ -50,9 +50,9 @@ const SECTIONS = [
     ratio: '4/3',
     text: [
       'Services à thé et à café, ménagères, plats, chandeliers et pièces de forme, belges ou européens, en argent massif ou en métal argenté.',
-      'Les poinçons de maître et de contrôle, le titre et le poids établissent l’origine et la valeur.',
+      'Les poinçons, le titre et le poids aident à établir l’origine et la valeur.',
     ],
-    points: ['Poinçons belges, français, anglais, néerlandais', 'Ménagères complètes et pièces isolées', 'Vermeil, étain, métal argenté'],
+    points: ['Poinçons de différentes origines', 'Ménagères complètes et pièces isolées', 'Vermeil, étain, métal argenté'],
   },
   {
     id: 'horlogerie',
@@ -62,9 +62,9 @@ const SECTIONS = [
     ratio: '4/5',
     text: [
       'Pendules de cheminée, cartels, horloges de parquet, régulateurs et montres de gousset, signés ou non, en état de marche ou à restaurer.',
-      'Le mouvement, le cadran, le boîtier et les signatures d’horlogers sont expertisés par un spécialiste.',
+      'Nous examinons le mouvement, le cadran, le boîtier et les signatures d’horlogers.',
     ],
-    points: ['Mouvements signés et numérotés', 'Bronzes dorés, marbres, écailles', 'Montres de gousset et de col'],
+    points: ['Mouvements signés', 'Bronzes dorés, marbres, écailles', 'Montres de gousset et de col'],
   },
   {
     id: 'objets-d-art',
@@ -86,7 +86,7 @@ const SECTIONS = [
     ratio: '4/3',
     text: [
       'Cabinets de collectionneur, tapisseries, livres rares et reliures, médailles, armes anciennes, curiosités scientifiques.',
-      'Pour les ensembles importants, nous établissons un catalogue et orientons, si besoin, vers la salle des ventes la plus adaptée.',
+      'Pour les ensembles importants, nous les examinons sur place avant de vous faire une offre.',
     ],
     points: ['Tapisseries et textiles anciens', 'Livres rares, manuscrits, cartes', 'Collections complètes d’amateur'],
   },
@@ -96,9 +96,8 @@ export default function Page() {
   return (
     <>
       <PageHero
-        kicker="Collections et spécialités"
-        title={<>Tableaux anciens, mobilier, argenterie, horlogerie&nbsp;: <em>nos domaines</em></>}
-        lede="Six spécialités, un même niveau d’exigence. Chaque pièce est examinée par l’expert du domaine, puis estimée par écrit."
+        title={<>Tableaux, mobilier, argenterie, horlogerie&nbsp;: <em>ce que nous estimons</em></>}
+        lede="Six familles d’objets que nous estimons et rachetons. Nous nous déplaçons à domicile dans toute la Belgique."
         crumbs={[{ name: 'Collections', path: PATH }]}
       />
       {SECTIONS.map((s, i) => (

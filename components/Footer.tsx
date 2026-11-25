@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { BRAND, NAV, REGIONS } from '@/lib/site';
+import { BRAND, CONTACT, NAV_MAIN, REGIONS, TRAVEL } from '@/lib/site';
+import ConsentLink from './ConsentLink';
 
 export default function Footer() {
   return (
@@ -8,15 +9,20 @@ export default function Footer() {
         <div>
           <p className="footer__brand">{BRAND.name}</p>
           <p className="footer__text">
-            Cabinet d’expertise d’art et maison d’antiquaires. Estimation gratuite, partage de succession et rachat
-            direct, partout en Belgique.
+            Estimation et rachat d’antiquités, de tableaux, de mobilier ancien, d’argenterie et d’horlogerie. {TRAVEL}
           </p>
-          <p className="footer__text">{BRAND.district}</p>
+          {CONTACT.phone && (
+            <p className="footer__text">
+              <a href={CONTACT.phoneHref} className="ulink">
+                {CONTACT.phone}
+              </a>
+            </p>
+          )}
         </div>
         <nav aria-label="Pages du site">
-          <p className="footer__title">Le cabinet</p>
+          <p className="footer__title">Le site</p>
           <ul>
-            {NAV.slice(0, 3).map((n) => (
+            {NAV_MAIN.map((n) => (
               <li key={n.href}>
                 <Link href={n.href} className="ulink">
                   {n.label}
@@ -24,24 +30,19 @@ export default function Footer() {
               </li>
             ))}
             <li>
-              <Link href="/la-maison/" className="ulink">
-                La Maison
-              </Link>
-            </li>
-            <li>
               <Link href="/contact/" className="ulink">
                 Contact
               </Link>
             </li>
           </ul>
         </nav>
-        <nav aria-label="Régions couvertes">
-          <p className="footer__title">Toute la Belgique</p>
+        <nav aria-label="Zones de déplacement">
+          <p className="footer__title">Nous nous déplaçons</p>
           <ul>
             {REGIONS.map((r) => (
               <li key={r.slug}>
                 <Link href={`/${r.slug}/`} className="ulink">
-                  Antiquaire en {r.name}
+                  {r.name}
                 </Link>
               </li>
             ))}
@@ -49,13 +50,17 @@ export default function Footer() {
         </nav>
       </div>
       <div className="wrap footer__legal">
-        <p>© {new Date().getFullYear()} {BRAND.name}. Tous droits réservés.</p>
+        <p>© {new Date().getFullYear()} {BRAND.name}</p>
         <p>
           <Link href="/mentions-legales/" className="ulink">
             Mentions légales
           </Link>
           {' · '}
-          Photographies : Art Institute of Chicago (domaine public, CC0).
+          <Link href="/politique-de-confidentialite/" className="ulink">
+            Politique de confidentialité
+          </Link>
+          {' · '}
+          <ConsentLink />
         </p>
       </div>
     </footer>

@@ -3,37 +3,34 @@ import { IMG } from '@/lib/images';
 import { pageMetadata } from '@/lib/site';
 
 export const metadata = pageMetadata({
-  title: 'Antiquaire à Bruxelles : expertise et rachat d’antiquités',
+  title: 'Estimation et rachat d’antiquités à domicile à Bruxelles',
   description:
-    'Antiquaire à Bruxelles : estimation gratuite, rachat d’antiquités et de tableaux, succession. Le Sablon, Uccle, Ixelles, Woluwe. Expert à domicile.',
+    'Estimation gratuite et rachat d’antiquités, de tableaux et de mobilier. Nous nous déplaçons à Uccle, Ixelles, Woluwe et dans toute la Région bruxelloise.',
   path: '/bruxelles/',
-  image: '/img/mobilier-1200.jpg',
 });
 
 export default function Page() {
   return (
     <RegionPage
       slug="bruxelles"
-      kicker="Bruxelles-Capitale"
-      title={<>Antiquaire à Bruxelles&nbsp;: <em>expertise, estimation et rachat</em></>}
-      lede="Du Sablon à Woluwe, nous estimons et rachetons mobilier ancien, tableaux, argenterie et objets d’art dans les dix-neuf communes."
+      where="à Bruxelles"
+      title={<>Estimation et rachat d’antiquités <em>à domicile à Bruxelles</em></>}
+      lede="Nous nous déplaçons à Uccle, Ixelles, Woluwe, Etterbeek, Saint-Gilles et dans toute la Région de Bruxelles-Capitale pour estimer et racheter vos objets d’art."
       intro={[
-        'Les maisons de maître d’Ixelles, d’Uccle ou de Saint-Gilles, les appartements d’avenue et les demeures de Woluwe abritent souvent des pièces de qualité, transmises de génération en génération.',
-        'Nous nous déplaçons pour les examiner, remettons une estimation écrite et, si vous le souhaitez, rachetons directement : tableaux, mobilier, argenterie, horlogerie, porcelaines.',
+        'Maisons de maître, appartements d’avenue, villas : les habitations bruxelloises abritent souvent des pièces de qualité, transmises de génération en génération.',
+        'Nous nous déplaçons pour les examiner et vous donner une estimation gratuite. Si l’objet nous intéresse, nous pouvons aussi vous faire une offre de rachat : tableaux, mobilier, argenterie, horlogerie, porcelaines.',
       ]}
-      zonesTitle="Le Sablon, Uccle, Ixelles, Woluwe : nous intervenons partout à Bruxelles"
       zones={[
-        { name: 'Le Sablon et le centre', text: 'Quartier historique des antiquaires : estimations de mobilier, tableaux et objets d’art, rachat de collections.' },
-        { name: 'Uccle et Ixelles', text: 'Maisons de maître et demeures bourgeoises : inventaires, successions, rachat de mobilier et d’argenterie.' },
-        { name: 'Woluwe et Etterbeek', text: 'Appartements et villas : estimation d’objets d’art, d’horlogerie et de tableaux modernes.' },
+        { name: 'Bruxelles et le centre', text: 'Nous nous déplaçons à Bruxelles-Ville, au Sablon et dans les quartiers voisins.' },
+        { name: 'Uccle, Ixelles, Saint-Gilles', text: 'Nous nous déplaçons dans les maisons de maître et demeures bourgeoises.' },
+        { name: 'Woluwe et Etterbeek', text: 'Nous nous déplaçons dans les appartements et villas de l’est de la capitale.' },
       ]}
       img={IMG.mobilier}
       faq={[
-        { q: 'Avez-vous une adresse à Bruxelles pour faire estimer un objet ?', a: 'La Maison est installée au Sablon, à Bruxelles. L’estimation se fait d’abord sur photographies ; nous nous déplaçons ensuite à domicile dans toute la région, ou nous vous recevons sur rendez-vous.' },
-        { q: 'Quelles communes bruxelloises desservez-vous ?', a: 'Les dix-neuf communes de la Région de Bruxelles-Capitale, dont Bruxelles-Ville, Uccle, Ixelles, Woluwe-Saint-Pierre, Woluwe-Saint-Lambert, Etterbeek et Saint-Gilles.' },
-        { q: 'Rachetez-vous le contenu complet d’une maison bruxelloise ?', a: 'Oui, pour les objets relevant de nos domaines : nous établissons l’inventaire, une offre globale ou lot par lot, puis nous organisons l’enlèvement.' },
+        { q: 'Avez-vous une boutique ou un bureau à Bruxelles ?', a: 'Non. Nous n’avons ni boutique ni bureau en Belgique : nous nous déplaçons à votre domicile pour estimer vos objets.' },
+        { q: 'Dans quelles communes bruxelloises vous déplacez-vous ?', a: 'Dans l’ensemble de la Région de Bruxelles-Capitale, dont Bruxelles-Ville, Uccle, Ixelles, Woluwe-Saint-Pierre, Woluwe-Saint-Lambert, Etterbeek et Saint-Gilles.' },
+        { q: 'L’estimation est-elle payante ?', a: 'Non. L’estimation est gratuite et sans engagement.' },
       ]}
-      ctaTitle="Faites estimer vos objets à Bruxelles"
     />
   );
 }

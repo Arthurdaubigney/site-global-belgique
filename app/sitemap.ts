@@ -14,6 +14,7 @@ const PAGES = [
   ['/la-maison/', 0.6],
   ['/contact/', 0.9],
   ['/mentions-legales/', 0.2],
+  ['/politique-de-confidentialite/', 0.2],
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

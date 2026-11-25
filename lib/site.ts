@@ -5,12 +5,31 @@ export const SITE_URL = (
 ).replace(/\/$/, '');
 
 export const BRAND = {
-  name: 'Maison Antiquaire de Belgique',
-  short: 'Maison Antiquaire',
-  tagline: 'Expertise, estimation et rachat d’antiquités sur tout le territoire belge',
-  email: 'cabinet@maison-antiquaire-belgique.example',
-  district: 'Le Sablon, Bruxelles',
+  name: 'Maison Antiquaire',
+  tagline: 'Estimation et rachat d’antiquités à domicile dans toute la Belgique',
 };
+
+/** Coordonnées : renseignées dans Vercel (Settings → Environment Variables) ou ici. */
+const phone = (process.env.NEXT_PUBLIC_PHONE || '').trim();
+const email = (process.env.NEXT_PUBLIC_EMAIL || '').trim();
+export const CONTACT = {
+  phone,
+  phoneHref: phone ? `tel:${phone.replace(/[^+\d]/g, '')}` : '',
+  email,
+  /** Marqueurs visibles uniquement dans les pages juridiques tant que les valeurs manquent. */
+  phoneLegal: phone || '[NUMÉRO BELGE +32…]',
+  emailLegal: email || '[EMAIL]',
+};
+
+export const PUBLISHER = {
+  name: 'François SECULA',
+  status: 'entrepreneur individuel',
+  siren: '529 601 486',
+  address: '21 rue du Docteur Tassin, 21200 Beaune, France',
+  host: 'Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis',
+};
+
+export const TRAVEL = 'Nous nous déplaçons à domicile dans toute la Belgique.';
 
 export const CTA = {
   primary: 'Demander une expertise gratuite',
@@ -48,7 +67,7 @@ export const REGIONS: Region[] = [
     slug: 'bruxelles',
     name: 'Bruxelles-Capitale',
     nameLong: 'Bruxelles-Capitale',
-    cities: ['Le Sablon', 'Uccle', 'Ixelles', 'Woluwe-Saint-Pierre', 'Woluwe-Saint-Lambert', 'Etterbeek', 'Saint-Gilles'],
+    cities: ['Bruxelles-Ville', 'Uccle', 'Ixelles', 'Woluwe-Saint-Pierre', 'Woluwe-Saint-Lambert', 'Etterbeek', 'Saint-Gilles'],
   },
   {
     slug: 'wallonie',
@@ -85,7 +104,7 @@ export function pageMetadata(opts: {
       siteName: BRAND.name,
       locale: 'fr_BE',
       type: 'website',
-      images: [{ url: `${SITE_URL}${opts.image || '/img/hero-1200.jpg'}` }],
+      images: [{ url: `${SITE_URL}${opts.image || '/og.jpg'}` }],
     },
     twitter: { card: 'summary_large_image', title: opts.title, description: opts.description },
   };

@@ -11,29 +11,28 @@ import { CTA, pageMetadata } from '@/lib/site';
 const PATH = '/rachat-succession/';
 
 export const metadata = pageMetadata({
-  title: 'Rachat d’antiquités et estimation de succession en Belgique',
+  title: 'Rachat d’antiquités et estimation lors d’une succession',
   description:
-    'Rachat direct d’antiquités, de mobilier ancien et de tableaux, estimation de succession et partage. Estimation gratuite, discrétion, partout en Belgique.',
+    'Rachat d’antiquités, de mobilier ancien et de tableaux, estimation lors d’une succession. Nous nous déplaçons à domicile dans toute la Belgique.',
   path: PATH,
-  image: '/img/candelabres-1200.jpg',
 });
 
 const FAQ: FaqItem[] = [
   {
     q: 'Faut-il vider la maison avant votre visite ?',
-    a: 'Non. Nous inventorions le contenu en place, pièce par pièce, et nous nous occupons de l’enlèvement des objets rachetés avec le soin qui convient à des pièces anciennes.',
+    a: 'Non. Nous regardons les objets en place, pièce par pièce, et nous nous occupons de l’enlèvement des objets rachetés.',
   },
   {
-    q: 'Le rapport d’estimation est-il accepté par le notaire ?',
-    a: 'Il est rédigé pour cet usage : liste des objets, description, valeur motivée, date et signature de l’expert. Il sert de base à la déclaration de succession et au partage.',
+    q: 'Vous occupez-vous du partage entre héritiers ?',
+    a: 'Non. Le partage de la succession relève du notaire. Nous estimons les objets d’art et pouvons vous proposer de racheter tout ou partie de ce qui vous intéresse.',
   },
   {
-    q: 'Comment éviter les désaccords entre héritiers ?',
-    a: 'Une estimation indépendante et chiffrée pose une base commune. Nous pouvons ensuite racheter les lots que personne ne souhaite garder, ou proposer une répartition par lots d’une valeur comparable.',
+    q: 'Comment êtes-vous payé lors d’un rachat ?',
+    a: 'Le paiement se fait par virement bancaire uniquement. Nous ne payons jamais en espèces.',
   },
   {
-    q: 'Quand êtes-vous payé ?',
-    a: 'Nous ne facturons pas l’estimation. Si vous acceptez notre offre de rachat, le paiement se fait par virement bancaire, au moment de l’enlèvement.',
+    q: 'Dois-je accepter votre offre ?',
+    a: 'Non. L’estimation est gratuite et sans engagement, et vous restez libre de refuser notre offre.',
   },
 ];
 
@@ -41,9 +40,8 @@ export default function Page() {
   return (
     <>
       <PageHero
-        kicker="Rachat et succession"
-        title={<>Rachat d’antiquités et <em>estimation de succession</em> en Belgique</>}
-        lede="Une maison à vider, un héritage à répartir, une collection à céder : un expert se déplace, inventorie, estime par écrit, puis rachète ou partage."
+        title={<>Rachat d’antiquités et <em>estimation lors d’une succession</em></>}
+        lede="Une maison à vider, un héritage à estimer, une collection à céder : nous nous déplaçons à domicile dans toute la Belgique, nous estimons, puis nous pouvons racheter."
         crumbs={[{ name: 'Rachat et succession', path: PATH }]}
       />
 
@@ -51,15 +49,15 @@ export default function Page() {
         <div className="wrap split">
           <Photo img={IMG.candelabres} />
           <div className="split__text">
-            <h2 id="succession-title">Un inventaire chiffré, utile au notaire et aux héritiers</h2>
+            <h2 id="succession-title">Succession : estimation et rachat des objets d’art</h2>
             <div className="prose">
               <p>
-                À Bruxelles comme à Namur ou à Gand, une succession demande de la méthode. Nous parcourons la
-                maison, identifions chaque objet de valeur et remettons un rapport d’estimation écrit.
+                Lors d’une succession, nous venons voir les objets sur place : mobilier, tableaux, argenterie,
+                horlogerie, porcelaines. Nous vous indiquons ce qu’ils valent, gratuitement et sans engagement.
               </p>
               <p>
-                Les héritiers savent alors ce que valent le mobilier, les tableaux, l’argenterie et les objets
-                d’art : ils décident ensemble de conserver, de vendre ou de nous céder les pièces.
+                Si vous le souhaitez, nous vous faisons une offre de rachat pour tout ou partie des objets. Le
+                partage de la succession entre héritiers relève du notaire.
               </p>
             </div>
             <div className="actions">
@@ -73,11 +71,11 @@ export default function Page() {
         <div className="wrap split split--rev">
           <Photo img={IMG.tasse} />
           <div className="split__text">
-            <h2 id="rachat-title">Une offre ferme pour vos objets d’art et antiquités</h2>
+            <h2 id="rachat-title">Rachat d’objets d’art et d’antiquités</h2>
             <ul className="checks">
               <li><b>Rachat de tableaux anciens</b>, de mobilier ancien, d’argenterie, d’horlogerie et de porcelaines.</li>
-              <li><b>Offre écrite</b> et ferme, sans commission ni frais cachés.</li>
-              <li><b>Enlèvement soigné</b> à domicile, partout en Belgique, et paiement par virement.</li>
+              <li><b>Estimation gratuite</b> à domicile, sans engagement de votre part.</li>
+              <li><b>Paiement par virement bancaire</b> uniquement, jamais en espèces.</li>
             </ul>
           </div>
         </div>
@@ -86,18 +84,18 @@ export default function Page() {
       <section className="section band--soft" aria-labelledby="faq-title">
         <div className="wrap">
           <div className="sec-head">
-            <h2 id="faq-title">Succession et rachat : ce que l’on nous demande</h2>
+            <h2 id="faq-title">Succession et rachat : vos questions</h2>
           </div>
           <Faq items={FAQ} />
         </div>
       </section>
 
-      <CtaBand title="Parlez-nous de votre succession ou de vos objets" />
+      <CtaBand title="Parlez-nous de vos objets ou de votre succession" />
       <JsonLd
         data={[
           serviceSchema(
-            'Rachat d’antiquités et estimation de succession',
-            'Rachat direct d’objets d’art, de mobilier ancien et de tableaux, estimation et partage de succession partout en Belgique.',
+            'Rachat d’antiquités et estimation lors d’une succession',
+            'Rachat d’objets d’art, de mobilier ancien et de tableaux, estimation lors d’une succession, à domicile dans toute la Belgique.',
             PATH,
           ),
           faqSchema(FAQ),

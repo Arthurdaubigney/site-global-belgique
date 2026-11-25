@@ -11,27 +11,25 @@ import Link from 'next/link';
 const PATH = '/la-maison/';
 
 export const metadata = pageMetadata({
-  title: 'La Maison Antiquaire de Belgique : cabinet d’expertise d’art',
+  title: 'Maison Antiquaire : estimation et rachat à domicile',
   description:
-    'Découvrez la Maison Antiquaire de Belgique : un cabinet d’expertise d’art et d’antiquaires au service des familles, notaires et collectionneurs belges.',
+    'Comment nous travaillons : estimation gratuite à domicile, offre de rachat sans obligation, paiement par virement. Nous nous déplaçons dans toute la Belgique.',
   path: PATH,
-  image: '/img/tasse-1200.jpg',
 });
 
 const PRINCIPES = [
-  { t: 'Indépendance', p: 'Une valeur écrite et motivée, qui ne dépend ni d’un intérêt de vente ni d’une commission.' },
-  { t: 'Discrétion', p: 'Successions, collections privées, objets de famille : vos informations restent entre nos mains.' },
-  { t: 'Précision', p: 'Chaque objet est identifié, daté et comparé aux ventes publiques avant toute estimation.' },
-  { t: 'Clarté', p: 'Une offre écrite, un prix ferme, un paiement par virement. Rien de caché.' },
+  { t: 'Gratuité', p: 'L’estimation est gratuite et sans engagement de votre part.' },
+  { t: 'Liberté', p: 'Vous êtes libre d’accepter ou de refuser notre offre de rachat.' },
+  { t: 'Clarté', p: 'Une offre précise, un paiement par virement bancaire uniquement, jamais en espèces.' },
+  { t: 'Discrétion', p: 'Vos informations et celles de votre famille ne servent qu’à traiter votre demande.' },
 ];
 
 export default function Page() {
   return (
     <>
       <PageHero
-        kicker="La Maison"
-        title={<>Un cabinet d’<em>expertise d’art</em> et d’antiquaires au service de toute la Belgique</>}
-        lede="Nous accompagnons les familles, les notaires et les collectionneurs qui veulent connaître la valeur réelle d’un objet ancien, et le céder dans de bonnes conditions."
+        title={<>Estimation et rachat d’antiquités, <em>à votre domicile</em></>}
+        lede="Nous estimons les objets d’art, les tableaux et le mobilier ancien chez les particuliers, et nous pouvons les racheter. Nous nous déplaçons dans toute la Belgique."
         crumbs={[{ name: 'La Maison', path: PATH }]}
       />
 
@@ -39,16 +37,15 @@ export default function Page() {
         <div className="wrap split">
           <Photo img={IMG.tasse} />
           <div className="split__text">
-            <h2 id="role-title">Estimer avec justesse, racheter avec loyauté</h2>
+            <h2 id="role-title">Comment nous travaillons</h2>
             <div className="prose">
               <p>
-                La Maison réunit l’expertise d’objets d’art et l’activité d’antiquaire : elle estime ce que vous lui
-                confiez et, si vous le souhaitez, le rachète directement.
+                Vous nous envoyez des photographies, ou nous venons voir les objets chez vous. Nous les examinons :
+                auteur, époque, matériaux, signature, état. Nous vous indiquons ensuite ce qu’ils valent.
               </p>
               <p>
-                Cette double compétence nous oblige : une estimation juste est la condition d’un rachat honnête. Elle
-                s’appuie sur l’histoire de l’art, sur les poinçons, signatures et marques, et sur le marché belge et
-                européen.
+                Si un objet nous intéresse, nous vous proposons un rachat. Nous n’avons ni boutique ni bureau en
+                Belgique : nous nous déplaçons à domicile.
               </p>
             </div>
           </div>
@@ -58,7 +55,7 @@ export default function Page() {
       <section className="section" aria-labelledby="principes-title">
         <div className="wrap">
           <div className="sec-head">
-            <h2 id="principes-title">Quatre engagements envers nos clients</h2>
+            <h2 id="principes-title">Nos engagements</h2>
           </div>
           <ol className="steps">
             {PRINCIPES.map((s) => (
@@ -74,10 +71,8 @@ export default function Page() {
       <section className="section band--dark" aria-labelledby="couverture-title">
         <div className="wrap split">
           <div className="split__text">
-            <h2 id="couverture-title">Bruxelles, Wallonie, Flandre</h2>
-            <p className="lede">
-              Un seul cabinet pour tout le pays. Un expert se déplace chez vous, quelle que soit la région.
-            </p>
+            <h2 id="couverture-title">Nous nous déplaçons dans toute la Belgique</h2>
+            <p className="lede">Bruxelles-Capitale, Wallonie et Flandre : nous venons chez vous, où que vous habitiez.</p>
             <ul className="chips">
               {REGIONS.map((r) => (
                 <li key={r.slug}>
@@ -100,8 +95,8 @@ export default function Page() {
       <CtaBand />
       <JsonLd
         data={serviceSchema(
-          'Cabinet d’expertise d’art et antiquaire en Belgique',
-          'Expertise, estimation, rachat et partage de succession d’objets d’art et d’antiquités, partout en Belgique.',
+          'Estimation et rachat d’antiquités à domicile',
+          'Estimation et rachat d’objets d’art et d’antiquités chez les particuliers, dans toute la Belgique.',
           PATH,
         )}
       />

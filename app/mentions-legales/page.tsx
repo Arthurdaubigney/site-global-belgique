@@ -1,17 +1,13 @@
 import Breadcrumb from '@/components/Breadcrumb';
-import { BRAND, pageMetadata } from '@/lib/site';
+import { BRAND, CONTACT, PUBLISHER, pageMetadata } from '@/lib/site';
 
 const PATH = '/mentions-legales/';
 
-export const metadata = {
-  ...pageMetadata({
-    title: 'Mentions légales et crédits photographiques',
-    description:
-      'Mentions légales, confidentialité et crédits photographiques de la Maison Antiquaire de Belgique, cabinet d’expertise d’art en Belgique.',
-    path: PATH,
-  }),
-  robots: { index: false, follow: true },
-};
+export const metadata = pageMetadata({
+  title: 'Mentions légales',
+  description: 'Mentions légales du site : éditeur, hébergeur, directeur de la publication et crédits photographiques.',
+  path: PATH,
+});
 
 export default function Page() {
   return (
@@ -19,23 +15,36 @@ export default function Page() {
       <div className="wrap">
         <div className="legal">
           <Breadcrumb items={[{ name: 'Mentions légales', path: PATH }]} />
-          <h1 id="page-title" style={{ fontSize: 'clamp(2.2rem, 4.6vw, 3.8rem)' }}>
+          <h1 id="page-title" style={{ fontSize: 'clamp(2.1rem, 4vw, 3.2rem)' }}>
             Mentions légales
           </h1>
-          <p>
-            Ce site est édité par {BRAND.name}, {BRAND.district}. Les informations d’identification de l’entreprise
-            (dénomination sociale, numéro d’entreprise BCE, TVA, coordonnées) sont à compléter avant la mise en ligne.
-          </p>
+
+          <h2>Éditeur du site</h2>
+          <ul>
+            <li>{PUBLISHER.name}, {PUBLISHER.status} (nom commercial : {BRAND.name})</li>
+            <li>SIREN : {PUBLISHER.siren}</li>
+            <li>Adresse : {PUBLISHER.address}</li>
+            <li>Téléphone : {CONTACT.phoneLegal}</li>
+            <li>E-mail : {CONTACT.emailLegal}</li>
+          </ul>
+
+          <h2>Directeur de la publication</h2>
+          <p>François Secula.</p>
+
+          <h2>Hébergeur</h2>
+          <p>{PUBLISHER.host}.</p>
+
           <h2>Données personnelles</h2>
           <p>
-            Les demandes envoyées par le formulaire de contact (Tally) sont utilisées uniquement pour répondre à votre
-            demande d’expertise. Vous pouvez demander leur suppression à tout moment.
+            Le traitement des données transmises par le formulaire de contact est décrit dans notre{' '}
+            <a className="ulink" href="/politique-de-confidentialite/">politique de confidentialité</a>.
           </p>
+
           <h2>Crédits photographiques</h2>
           <p>
             Les photographies d’objets d’art proviennent de la collection en accès libre de l’Art Institute of Chicago
-            (domaine public, licence CC0) et illustrent des pièces comparables à celles que nous expertisons. Elles
-            ne constituent pas des objets en vente.
+            (domaine public, licence CC0). Elles illustrent des pièces comparables à celles que nous estimons et ne
+            sont pas des objets proposés à la vente.
           </p>
         </div>
       </div>

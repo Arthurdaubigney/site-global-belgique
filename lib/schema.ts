@@ -1,38 +1,31 @@
-import { BRAND, REGIONS, SITE_URL } from './site';
+import { BRAND, CONTACT, REGIONS, SITE_URL } from './site';
 
 const ORG_ID = `${SITE_URL}/#organisation`;
 
 export function organisationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['AntiqueStore', 'ProfessionalService', 'LocalBusiness'],
+    '@type': 'ProfessionalService',
     '@id': ORG_ID,
     name: BRAND.name,
-    alternateName: 'Cabinet d’expertise d’art et antiquités',
     description:
-      'Maison d’antiquaires et cabinet d’expertise d’art : estimation gratuite, partage de succession et rachat direct d’antiquités, tableaux, mobilier ancien, argenterie et horlogerie dans toute la Belgique.',
+      'Estimation gratuite et rachat d’antiquités, tableaux, mobilier ancien, argenterie et horlogerie, à domicile dans toute la Belgique. Estimation et rachat lors d’une succession.',
     url: SITE_URL,
     logo: `${SITE_URL}/icon.svg`,
-    image: `${SITE_URL}/img/hero-1200.jpg`,
-    priceRange: 'Estimation gratuite',
-    knowsLanguage: ['fr', 'nl', 'en'],
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Bruxelles',
-      addressRegion: 'Bruxelles-Capitale',
-      addressCountry: 'BE',
-    },
+    image: `${SITE_URL}/og.jpg`,
+    ...(CONTACT.phone ? { telephone: CONTACT.phone } : {}),
+    serviceType: 'Estimation et rachat d’antiquités à domicile',
     areaServed: [
       { '@type': 'Country', name: 'Belgique', identifier: 'BE' },
       ...REGIONS.map((r) => ({ '@type': 'AdministrativeArea', name: r.nameLong })),
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Services d’expertise et de rachat d’antiquités',
+      name: 'Estimation et rachat d’antiquités',
       itemListElement: [
-        'Expertise et estimation gratuite d’objets d’art',
-        'Estimation et partage de succession',
-        'Rachat direct de tableaux anciens et modernes',
+        'Estimation gratuite d’objets d’art à domicile',
+        'Estimation et rachat lors d’une succession',
+        'Rachat de tableaux anciens et modernes',
         'Rachat de mobilier ancien',
         'Rachat d’argenterie et d’orfèvrerie',
         'Rachat d’horlogerie ancienne et de pièces de collection',

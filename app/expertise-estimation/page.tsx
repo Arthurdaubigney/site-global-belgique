@@ -11,25 +11,24 @@ import { CTA, pageMetadata } from '@/lib/site';
 const PATH = '/expertise-estimation/';
 
 export const metadata = pageMetadata({
-  title: 'Expertise et estimation gratuite d’objets d’art en Belgique',
+  title: 'Estimation gratuite d’objets d’art à domicile en Belgique',
   description:
-    'Expertise d’objets d’art et estimation gratuite en Belgique : tableaux anciens, mobilier, argenterie, horlogerie. Expert à domicile dans toute la Belgique.',
+    'Estimation gratuite de tableaux anciens, mobilier, argenterie et horlogerie. Nous nous déplaçons à domicile dans toute la Belgique, sans engagement.',
   path: PATH,
-  image: '/img/horloge-1200.jpg',
 });
 
 const FAQ: FaqItem[] = [
   {
     q: 'Que faut-il envoyer pour une première estimation ?',
-    a: 'Trois à six photographies nettes (vue d’ensemble, signature ou poinçon, détails, éventuels défauts), les dimensions approximatives et, si vous les avez, les factures, certificats ou souvenirs de provenance.',
+    a: 'Quelques photographies nettes (vue d’ensemble, signature ou poinçon, détails, éventuels défauts), les dimensions approximatives et, si vous les avez, les factures ou souvenirs de provenance.',
   },
   {
-    q: 'En combien de temps recevez-vous une réponse ?',
-    a: 'Une première orientation de valeur est donnée dès l’examen des photographies. Pour une expertise détaillée sur place, nous proposons un rendez-vous au plus près de chez vous, à Bruxelles, en Wallonie ou en Flandre.',
+    q: 'L’estimation se fait-elle chez moi ?',
+    a: 'Oui. Nous nous déplaçons à domicile dans toute la Belgique pour examiner les objets sur place. Nous n’avons pas de boutique ni de bureau en Belgique.',
   },
   {
-    q: 'L’estimation est-elle utilisable pour une assurance ou un notaire ?',
-    a: 'Oui. Nous rédigeons un rapport d’estimation daté et motivé, adapté à une déclaration de succession, à un partage, à une assurance ou à un projet de vente.',
+    q: 'L’estimation m’engage-t-elle à vendre ?',
+    a: 'Non. L’estimation est gratuite et sans engagement. Vous décidez ensuite librement de vendre, de conserver l’objet ou de passer par une salle des ventes.',
   },
 ];
 
@@ -37,25 +36,24 @@ export default function Page() {
   return (
     <>
       <PageHero
-        kicker="Expertise et estimation"
-        title={<>Expertise et estimation gratuite d’<em>objets d’art</em> en Belgique</>}
-        lede="Un expert examine votre objet, le situe dans l’histoire de l’art et dans le marché, puis vous remet une valeur écrite et motivée. Sans frais, sans engagement."
-        crumbs={[{ name: 'Expertise et estimation', path: PATH }]}
+        title={<>Estimation gratuite d’<em>objets d’art</em> à domicile en Belgique</>}
+        lede="Nous examinons votre objet, le situons dans l’histoire de l’art et dans le marché, puis vous indiquons sa valeur. Gratuit, sans engagement, chez vous."
+        crumbs={[{ name: 'Estimation', path: PATH }]}
       />
 
       <section className="section band--soft" aria-labelledby="demarche-title">
         <div className="wrap split">
           <div className="split__text">
-            <h2 id="demarche-title">Une expertise fondée sur l’objet, pas sur l’impression</h2>
+            <h2 id="demarche-title">Une estimation fondée sur l’objet</h2>
             <div className="prose">
               <p>
                 Chaque estimation repose sur l’identification de l’objet : auteur ou atelier, époque, matériaux,
                 signature, poinçon, état de conservation et restaurations. Elle est confrontée aux résultats récents
-                des ventes publiques et au marché belge de l’art et des antiquités.
+                des ventes publiques.
               </p>
               <p>
-                Vous recevez une valeur de vente et, sur demande, une valeur d’assurance ou de remplacement. Le
-                rapport est écrit, daté et signé par l’expert qui a examiné la pièce.
+                Nous nous déplaçons à domicile dans toute la Belgique. Si l’objet nous intéresse, nous pouvons aussi
+                vous faire une offre de rachat, que vous êtes libre de refuser.
               </p>
             </div>
           </div>
@@ -70,20 +68,20 @@ export default function Page() {
           </div>
           <div className="grid grid--2">
             <ul className="checks">
-              <li><b>Tableaux anciens et modernes</b> : huiles, aquarelles, dessins, gravures, œuvres de l’école belge.</li>
-              <li><b>Mobilier ancien</b> : commodes, bureaux, cabinets, sièges, boiseries.</li>
+              <li><b>Tableaux anciens et modernes</b> : huiles, aquarelles, dessins, gravures.</li>
+              <li><b>Mobilier ancien</b> : commodes, bureaux, cabinets, sièges.</li>
               <li><b>Argenterie et orfèvrerie</b> : services, couverts, pièces poinçonnées.</li>
             </ul>
             <ul className="checks">
               <li><b>Horlogerie</b> : pendules, cartels, horloges de parquet, montres de gousset.</li>
-              <li><b>Objets d’art</b> : porcelaines, bronzes, cristaux, verreries, ivoires anciens.</li>
-              <li><b>Pièces de collection</b> : tapisseries, livres rares, curiosités, souvenirs historiques.</li>
+              <li><b>Objets d’art</b> : porcelaines, bronzes, cristaux, verreries.</li>
+              <li><b>Pièces de collection</b> : tapisseries, livres rares, curiosités.</li>
             </ul>
           </div>
           <div className="actions">
             <Button href={CTA.href}>{CTA.primary}</Button>
             <Button href="/collections/" variant="line">
-              Voir les collections
+              Voir les domaines
             </Button>
           </div>
         </div>
@@ -98,12 +96,12 @@ export default function Page() {
         </div>
       </section>
 
-      <CtaBand title="Obtenez l’estimation de votre objet" />
+      <CtaBand title="Faites estimer votre objet" />
       <JsonLd
         data={[
           serviceSchema(
-            'Expertise et estimation gratuite d’objets d’art',
-            'Expertise d’antiquités, de tableaux, de mobilier, d’argenterie et d’horlogerie avec estimation écrite gratuite partout en Belgique.',
+            'Estimation gratuite d’objets d’art à domicile',
+            'Estimation gratuite d’antiquités, de tableaux, de mobilier, d’argenterie et d’horlogerie, à domicile dans toute la Belgique.',
             PATH,
           ),
           faqSchema(FAQ),

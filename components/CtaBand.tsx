@@ -3,7 +3,7 @@ import { CTA } from '@/lib/site';
 
 export default function CtaBand({
   title = 'Un objet à faire expertiser, une succession à régler ?',
-  text = 'Décrivez votre demande en deux minutes. Un expert vous répond avec une première estimation, sans engagement, où que vous soyez en Belgique.',
+  text = 'Décrivez votre demande et joignez quelques photographies. Nous vous répondons avec une première estimation, sans engagement. Nous nous déplaçons à domicile dans toute la Belgique.',
 }: {
   title?: string;
   text?: string;
