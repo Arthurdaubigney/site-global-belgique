@@ -1,0 +1,7 @@
+node_modules
+.next
+out
+.taste-skill/chrome-*
+next-env.d.ts
+*.tsbuildinfo
+.taste-skill
