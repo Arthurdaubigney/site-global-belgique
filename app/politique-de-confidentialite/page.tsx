@@ -61,9 +61,9 @@ export default function Page() {
 
           <h2>Cookies et mesure publicitaire</h2>
           <p>
-            Le site utilise la balise Google Ads pour mesurer l’efficacité de nos annonces. Elle ne dépose de cookies
-            et ne collecte de données qu’avec votre accord : au premier affichage, un bandeau vous permet d’accepter ou
-            de refuser, et vous pouvez modifier votre choix à tout moment via le lien « Cookies » en bas de page.
+            Le site utilise la balise Google Ads pour mesurer l’efficacité de nos annonces. Cette balise peut déposer
+            des cookies dans votre navigateur. Vous pouvez les refuser ou les supprimer à tout moment dans les
+            paramètres de votre navigateur, ou gérer vos préférences publicitaires sur adssettings.google.com.
           </p>
         </div>
       </div>

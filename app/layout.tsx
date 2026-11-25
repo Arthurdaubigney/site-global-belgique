@@ -8,7 +8,6 @@ import '@fontsource/inter/500.css';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import CookieConsent from '@/components/CookieConsent';
 import JsonLd from '@/components/JsonLd';
 import { organisationSchema, websiteSchema } from '@/lib/schema';
 import { BRAND, SITE_URL } from '@/lib/site';
@@ -28,13 +27,10 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-/** Balise Google Ads. Consent Mode v2 : tout est refusé tant que le visiteur n’a pas accepté. */
+/** Balise Google Ads (identifiant AW-18503417665). */
 const GTAG = `
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  var c = 'denied';
-  try { if (localStorage.getItem('ma-consent') === 'granted') c = 'granted'; } catch (e) {}
-  gtag('consent', 'default', { ad_storage: c, ad_user_data: c, ad_personalization: c, analytics_storage: c, wait_for_update: 500 });
   gtag('js', new Date());
   gtag('config', 'AW-18503417665');
 `;
@@ -50,7 +46,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="contenu">{children}</main>
         <Footer />
-        <CookieConsent />
         <JsonLd data={[organisationSchema(), websiteSchema()]} />
       </body>
     </html>

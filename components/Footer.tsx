@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { BRAND, CONTACT, NAV_MAIN, REGIONS, TRAVEL } from '@/lib/site';
-import ConsentLink from './ConsentLink';
 
 export default function Footer() {
   return (
@@ -59,8 +58,6 @@ export default function Footer() {
           <Link href="/politique-de-confidentialite/" className="ulink">
             Politique de confidentialité
           </Link>
-          {' · '}
-          <ConsentLink />
         </p>
       </div>
     </footer>

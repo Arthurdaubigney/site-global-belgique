@@ -1134,27 +1134,6 @@ a.region:hover {
   color: inherit;
   cursor: pointer;
 }
-.consent {
-  position: fixed;
-  left: var(--s5);
-  right: var(--s5);
-  bottom: var(--s5);
-  z-index: 80;
-  max-width: 720px;
-  margin-inline: auto;
-  display: grid;
-  gap: var(--s4);
-  padding: var(--s5);
-  background: var(--bg);
-  border: 1px solid var(--ink);
-  box-shadow: 0 24px 60px -30px rgba(23, 21, 15, 0.5);
-  font-size: 0.88rem;
-}
-.consent__actions {
-  display: flex;
-  gap: var(--s3);
-  justify-content: flex-end;
-}
 .contact__phone {
   font-family: var(--serif);
   font-size: 1.9rem;
@@ -1171,12 +1150,6 @@ a.region:hover {
   .nav__phone {
     font-family: var(--serif);
     font-size: 1.8rem;
-  }
-}
-@media (max-width: 640px) {
-  .consent__actions .btn {
-    flex: 1;
-    justify-content: center;
   }
 }
 @media (max-width: 480px) {
