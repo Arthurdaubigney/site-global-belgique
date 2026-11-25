@@ -413,6 +413,28 @@ main {
   transform: scale(1.025);
 }
 
+/* Objets détourés : fond de studio clair, ombre portée, objet entier avec de l'air autour */
+.photo--cut {
+  background: radial-gradient(ellipse at 50% 38%, #fbf9f4 0%, #f1ece2 62%, #e7e0d2 100%);
+}
+.photo--cut img {
+  object-fit: contain;
+  padding: 9%;
+  filter: drop-shadow(0 16px 14px rgba(58, 44, 20, 0.26));
+}
+.photo--bare {
+  background: none;
+  overflow: visible;
+}
+.photo--bare img {
+  height: auto;
+  padding: 0;
+  filter: drop-shadow(0 26px 22px rgba(58, 44, 20, 0.3));
+}
+.photo--bare:hover img {
+  transform: scale(1.015);
+}
+
 /* ---------- Héros ---------- */
 .hero {
   display: grid;
@@ -454,12 +476,16 @@ main {
 .hero__media {
   justify-self: end;
   width: 100%;
-  max-width: 560px;
+  max-width: 620px;
+  display: grid;
+  place-items: center;
 }
 .hero__media .photo {
-  aspect-ratio: 1 / 1 !important;
-  max-height: calc(100svh - var(--nav) - 80px);
   width: 100%;
+}
+.hero__media .photo img {
+  max-height: calc(100svh - var(--nav) - 120px);
+  object-fit: contain;
 }
 .hero--page {
   grid-template-columns: 1fr;
@@ -497,12 +523,12 @@ main {
 }
 @keyframes develop {
   from {
-    filter: sepia(0.9) grayscale(0.7) contrast(1.05) brightness(0.92);
-    transform: scale(1.06);
+    opacity: 0;
+    transform: scale(1.04) translateY(14px);
   }
   to {
-    filter: none;
-    transform: scale(1);
+    opacity: 1;
+    transform: none;
   }
 }
 [data-enter] > * {
@@ -991,8 +1017,7 @@ a.region:hover {
     justify-self: stretch;
     max-width: none;
   }
-  .hero__media .photo {
-    aspect-ratio: 4 / 3 !important;
+  .hero__media .photo img {
     max-height: none;
   }
   .split,

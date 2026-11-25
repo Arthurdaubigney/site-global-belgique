@@ -36,7 +36,7 @@ SEO : un `<h1>` par page, `<title>` de 52 à 60 caractères, meta description de
 
 ## Photographies
 
-Les photographies (`public/img`) proviennent de l’Art Institute of Chicago (domaine public, CC0). `python3 scripts/prepare-images.py` les télécharge, génère les formats 600 et 1200 px et écrit `lib/images.ts` (alt et title descriptifs). À remplacer par les photographies de la Maison dès qu’elles existent.
+Les photographies (`public/img`) proviennent de l’Art Institute of Chicago (domaine public, CC0). `python3 scripts/prepare-images.py` les télécharge, **détoure les objets** (rembg, modèle `isnet-general-use` : `pip install "rembg[cpu]" pillow`), exporte des variantes 600/900/1200 px (WebP transparent pour les objets, JPEG pour les tableaux) et écrit `lib/images.ts` (alt et title descriptifs). Le CSS pose les objets sur un fond de studio clair avec ombre portée. À remplacer par les photographies de la Maison dès qu’elles existent (même pipeline).
 
 ## À compléter avant la mise en ligne
 

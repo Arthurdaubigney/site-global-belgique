@@ -22,7 +22,7 @@ const DOMAINS = [
   { img: IMG.argenterie, ratio: '1.3333', title: 'Argenterie et orfèvrerie', text: 'Services, couverts, pièces poinçonnées belges et européennes.', href: '/collections/#argenterie' },
   { img: IMG.horlogerie, ratio: '0.8', title: 'Horlogerie ancienne', text: 'Pendules, cartels, horloges de parquet, montres de gousset.', href: '/collections/#horlogerie' },
   { img: IMG.porcelaine, ratio: '0.8', title: 'Porcelaine et objets d’art', text: 'Sèvres, Meissen, faïences, bronzes, cristaux et verreries.', href: '/collections/#objets-d-art' },
-  { img: IMG.tapisserie, ratio: '0.8', title: 'Pièces de collection', text: 'Cabinets de curiosités, tapisseries, livres rares, curiosités.', href: '/collections/#collection' },
+  { img: IMG.cabinet, ratio: '0.8', title: 'Pièces de collection', text: 'Cabinets de curiosités, tapisseries, livres rares, curiosités.', href: '/collections/#collection' },
 ];
 
 const STEPS = [
@@ -80,7 +80,7 @@ export default function Home() {
           </p>
         </div>
         <div className="hero__media">
-          <Photo img={IMG.hero} priority sizes={SIZES.hero} />
+          <Photo img={IMG.hero} priority bare sizes={SIZES.hero} />
         </div>
       </section>
 
