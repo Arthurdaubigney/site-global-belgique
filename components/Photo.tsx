@@ -2,7 +2,7 @@ import type { Img } from '@/lib/site';
 
 /** Tailles d’affichage réelles (CSS) — le navigateur choisit 600, 900 ou 1200 px selon l’écran. */
 export const SIZES = {
-  hero: '(max-width: 960px) 100vw, 47vw',
+  hero: '(max-width: 960px) 100vw, 560px',
   card: '(max-width: 640px) 100vw, (max-width: 960px) 50vw, min(411px, 29vw)',
   split: '(max-width: 960px) 100vw, min(592px, 46vw)',
 } as const;

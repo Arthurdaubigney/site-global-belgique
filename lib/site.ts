@@ -28,6 +28,14 @@ export const NAV = [
   { href: '/la-maison/', label: 'La Maison' },
 ];
 
+/** Menu principal : les trois régions sont regroupées dans un seul point « Régions ». */
+export const NAV_MAIN = [
+  { href: '/expertise-estimation/', label: 'Expertise' },
+  { href: '/rachat-succession/', label: 'Rachat & succession' },
+  { href: '/collections/', label: 'Collections' },
+  { href: '/la-maison/', label: 'La Maison' },
+];
+
 export type Region = {
   slug: 'bruxelles' | 'wallonie' | 'flandre';
   name: string;

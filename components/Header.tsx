@@ -2,20 +2,42 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { BRAND, CTA, NAV } from '@/lib/site';
+import { useEffect, useRef, useState } from 'react';
+import { CTA, NAV_MAIN, REGIONS } from '@/lib/site';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [sub, setSub] = useState(false);
   const path = usePathname();
+  const subRef = useRef<HTMLLIElement>(null);
+  const regionActive = REGIONS.some((r) => path === `/${r.slug}/`);
 
-  useEffect(() => setOpen(false), [path]);
+  useEffect(() => {
+    setOpen(false);
+    setSub(false);
+  }, [path]);
+
   useEffect(() => {
     document.documentElement.classList.toggle('menu-open', open);
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
   }, [open]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSub(false);
+        setOpen(false);
+      }
+    };
+    const onClick = (e: MouseEvent) => {
+      if (subRef.current && !subRef.current.contains(e.target as Node)) setSub(false);
+    };
+    window.addEventListener('keydown', onKey);
+    document.addEventListener('click', onClick);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.removeEventListener('click', onClick);
+    };
+  }, []);
 
   return (
     <header className="header">
@@ -23,8 +45,8 @@ export default function Header() {
         <a className="skip-link" href="#contenu">
           Aller au contenu
         </a>
-        <Link href="/" className="logo" aria-label={`${BRAND.name} — accueil`}>
-          <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" className="logo__mark">
+        <Link href="/" className="logo" aria-label="Maison Antiquaire de Belgique — accueil">
+          <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" className="logo__mark">
             <rect x="1" y="1" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1" />
             <path d="M8 24 16 7l8 17M11 18h10" fill="none" stroke="currentColor" strokeWidth="1.2" />
           </svg>
@@ -36,25 +58,56 @@ export default function Header() {
 
         <nav className={`nav ${open ? 'is-open' : ''}`} aria-label="Navigation principale" id="menu">
           <ul>
-            {NAV.map((n) => (
+            {NAV_MAIN.slice(0, 3).map((n) => (
               <li key={n.href}>
                 <Link href={n.href} className="ulink" aria-current={path === n.href ? 'page' : undefined}>
                   {n.label}
                 </Link>
               </li>
             ))}
+            <li className={`has-sub ${sub ? 'is-open' : ''}`} ref={subRef}>
+              <button
+                type="button"
+                className={`ulink sub-btn ${regionActive ? 'is-current' : ''}`}
+                aria-expanded={sub}
+                aria-controls="menu-regions"
+                onClick={() => setSub((v) => !v)}
+              >
+                Régions
+                <svg viewBox="0 0 10 6" width="10" height="6" aria-hidden="true">
+                  <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+                </svg>
+              </button>
+              <ul className="sub" id="menu-regions">
+                {REGIONS.map((r) => (
+                  <li key={r.slug}>
+                    <Link
+                      href={`/${r.slug}/`}
+                      className="ulink"
+                      aria-current={path === `/${r.slug}/` ? 'page' : undefined}
+                    >
+                      {r.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+            <li>
+              <Link
+                href={NAV_MAIN[3].href}
+                className="ulink"
+                aria-current={path === NAV_MAIN[3].href ? 'page' : undefined}
+              >
+                {NAV_MAIN[3].label}
+              </Link>
+            </li>
           </ul>
           <Link href={CTA.href} className="btn btn--solid btn--sm nav__cta">
             <span>Expertise gratuite</span>
           </Link>
         </nav>
 
-        <button
-          className="burger"
-          aria-expanded={open}
-          aria-controls="menu"
-          onClick={() => setOpen((o) => !o)}
-        >
+        <button className="burger" aria-expanded={open} aria-controls="menu" onClick={() => setOpen((o) => !o)}>
           <span className="sr">{open ? 'Fermer le menu' : 'Ouvrir le menu'}</span>
           <i />
           <i />
