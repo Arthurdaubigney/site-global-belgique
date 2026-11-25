@@ -12,6 +12,9 @@ os.makedirs(OUT, exist_ok=True)
 UA = {"User-Agent": "maison-antiquaire-site/1.0"}
 
 # nom -> (id AIC, alt, title)
+# Points focaux (object-position) quand le cadre recadre l'image
+FOCUS = {"hero": "38% 55%", "cabinet": "50% 40%", "mobilier": "50% 55%", "tableaux": "50% 45%"}
+
 IMAGES = {
     "hero": (156442, "Coffre de style Boulle en écaille et marqueterie de laiton, bronzes dorés, XVIIIe siècle", "Coffre Boulle aux bronzes dorés : un objet d’art typique de nos expertises"),
     "tableaux": (62042, "Nature morte flamande du XVIIe siècle aux gibiers, fruits et légumes", "Tableau flamand ancien : nature morte du XVIIe siècle"),
@@ -53,6 +56,9 @@ for name, (aid, alt, title) in IMAGES.items():
     dims[name] = im.size
     if not os.path.exists(p600):
         s = im.copy(); s.thumbnail((600, 600)); s.save(p600, quality=80, optimize=True, progressive=True)
+    p900 = os.path.join(OUT, f"{name}-900.jpg")
+    if not os.path.exists(p900):
+        s = im.copy(); s.thumbnail((900, 900)); s.save(p900, quality=80, optimize=True, progressive=True)
     print(name, im.size)
 
 with open(os.path.join(ROOT, "lib", "images.ts"), "w") as f:
@@ -61,5 +67,6 @@ with open(os.path.join(ROOT, "lib", "images.ts"), "w") as f:
     for name, (aid, alt, title) in IMAGES.items():
         w, h = dims[name]
         key = name.replace("-", "_")
-        f.write(f"  {key}: {{ file: {json.dumps(name)}, w: {w}, h: {h}, alt: {json.dumps(alt, ensure_ascii=False)}, title: {json.dumps(title, ensure_ascii=False)} }},\n")
+        pos = f", pos: {json.dumps(FOCUS[name])}" if name in FOCUS else ""
+        f.write(f"  {key}: {{ file: {json.dumps(name)}, w: {w}, h: {h}, alt: {json.dumps(alt, ensure_ascii=False)}, title: {json.dumps(title, ensure_ascii=False)}{pos} }},\n")
     f.write("} satisfies Record<string, Img>;\n")

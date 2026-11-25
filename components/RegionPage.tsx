@@ -45,7 +45,7 @@ export default function RegionPage(p: Props) {
               <Button href={CTA.href}>{CTA.primary}</Button>
             </div>
           </div>
-          <Photo img={p.img} ratio="4/5" sizes="(max-width: 960px) 100vw, 50vw" />
+          <Photo img={p.img} />
         </div>
       </section>
 

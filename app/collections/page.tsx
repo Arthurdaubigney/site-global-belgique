@@ -109,7 +109,7 @@ export default function Page() {
           aria-labelledby={`${s.id}-title`}
         >
           <div className={`wrap split ${i % 2 ? 'split--rev' : ''}`}>
-            <Photo img={s.img} ratio={s.ratio} sizes="(max-width: 960px) 100vw, 50vw" />
+            <Photo img={s.img} />
             <div className="split__text">
               <h2 id={`${s.id}-title`}>{s.title}</h2>
               <div className="prose">

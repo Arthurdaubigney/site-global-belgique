@@ -37,7 +37,7 @@ export default function Page() {
 
       <section className="section band--soft" aria-labelledby="role-title">
         <div className="wrap split">
-          <Photo img={IMG.tasse} ratio="4/3" sizes="(max-width: 960px) 100vw, 50vw" />
+          <Photo img={IMG.tasse} />
           <div className="split__text">
             <h2 id="role-title">Estimer avec justesse, racheter avec loyauté</h2>
             <div className="prose">
@@ -93,7 +93,7 @@ export default function Page() {
               </Button>
             </div>
           </div>
-          <Photo img={IMG.vase} ratio="4/5" sizes="(max-width: 960px) 100vw, 50vw" />
+          <Photo img={IMG.vase} />
         </div>
       </section>
 

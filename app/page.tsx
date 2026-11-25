@@ -3,7 +3,7 @@ import Button from '@/components/Button';
 import CtaBand from '@/components/CtaBand';
 import Faq, { type FaqItem } from '@/components/Faq';
 import JsonLd from '@/components/JsonLd';
-import Photo from '@/components/Photo';
+import Photo, { SIZES } from '@/components/Photo';
 import WordHighlight from '@/components/WordHighlight';
 import { IMG } from '@/lib/images';
 import { faqSchema } from '@/lib/schema';
@@ -17,12 +17,12 @@ export const metadata = pageMetadata({
 });
 
 const DOMAINS = [
-  { img: IMG.tableaux, title: 'Tableaux anciens et modernes', text: 'Écoles flamande, hollandaise et belge, huiles, aquarelles, dessins.', href: '/collections/#tableaux' },
-  { img: IMG.mobilier, title: 'Mobilier ancien', text: 'Commodes, cabinets, bureaux et sièges estampillés du XVIIe au XIXe siècle.', href: '/collections/#mobilier' },
-  { img: IMG.argenterie, title: 'Argenterie et orfèvrerie', text: 'Services, couverts, pièces poinçonnées belges et européennes.', href: '/collections/#argenterie' },
-  { img: IMG.horlogerie, title: 'Horlogerie ancienne', text: 'Pendules, cartels, horloges de parquet, montres de gousset.', href: '/collections/#horlogerie' },
-  { img: IMG.porcelaine, title: 'Porcelaine et objets d’art', text: 'Sèvres, Meissen, faïences, bronzes, cristaux et verreries.', href: '/collections/#objets-d-art' },
-  { img: IMG.cabinet, title: 'Pièces de collection', text: 'Cabinets de curiosités, tapisseries, livres rares, curiosités.', href: '/collections/#collection' },
+  { img: IMG.tableaux, ratio: '1.3333', title: 'Tableaux anciens et modernes', text: 'Écoles flamande, hollandaise et belge, huiles, aquarelles, dessins.', href: '/collections/#tableaux' },
+  { img: IMG.mobilier, ratio: '1.3333', title: 'Mobilier ancien', text: 'Commodes, cabinets, bureaux et sièges estampillés du XVIIe au XIXe siècle.', href: '/collections/#mobilier' },
+  { img: IMG.argenterie, ratio: '1.3333', title: 'Argenterie et orfèvrerie', text: 'Services, couverts, pièces poinçonnées belges et européennes.', href: '/collections/#argenterie' },
+  { img: IMG.horlogerie, ratio: '0.8', title: 'Horlogerie ancienne', text: 'Pendules, cartels, horloges de parquet, montres de gousset.', href: '/collections/#horlogerie' },
+  { img: IMG.porcelaine, ratio: '0.8', title: 'Porcelaine et objets d’art', text: 'Sèvres, Meissen, faïences, bronzes, cristaux et verreries.', href: '/collections/#objets-d-art' },
+  { img: IMG.tapisserie, ratio: '0.8', title: 'Pièces de collection', text: 'Cabinets de curiosités, tapisseries, livres rares, curiosités.', href: '/collections/#collection' },
 ];
 
 const STEPS = [
@@ -80,7 +80,7 @@ export default function Home() {
           </p>
         </div>
         <div className="hero__media">
-          <Photo img={IMG.hero} priority sizes="(max-width: 960px) 100vw, 50vw" />
+          <Photo img={IMG.hero} priority sizes={SIZES.hero} />
         </div>
       </section>
 
@@ -102,7 +102,7 @@ export default function Home() {
           <div className="grid grid--3">
             {DOMAINS.map((d) => (
               <Link key={d.title} href={d.href} className="card">
-                <Photo img={d.img} sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 33vw" />
+                <Photo img={d.img} ratio={d.ratio} sizes={SIZES.card} />
                 <div className="card__body">
                   <h3>{d.title}</h3>
                   <p>{d.text}</p>
@@ -132,7 +132,7 @@ export default function Home() {
 
       <section className="section band--soft" aria-labelledby="succession-title">
         <div className="wrap split">
-          <Photo img={IMG.secretaire} ratio="4/5" sizes="(max-width: 960px) 100vw, 50vw" />
+          <Photo img={IMG.secretaire} />
           <div className="split__text">
             <h2 id="succession-title">Estimer une succession, sans conflit entre héritiers</h2>
             <p className="lede">

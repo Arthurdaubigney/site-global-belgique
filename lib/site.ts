@@ -57,7 +57,7 @@ export const REGIONS: Region[] = [
 ];
 
 /** Photographies : fichiers locaux optimisés (public/img), voir scripts/prepare-images.mjs */
-export type Img = { file: string; alt: string; title: string; w: number; h: number };
+export type Img = { file: string; alt: string; title: string; w: number; h: number; pos?: string };
 
 export function pageMetadata(opts: {
   title: string;

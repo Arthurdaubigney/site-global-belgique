@@ -116,7 +116,7 @@ h2 {
 }
 h1,
 .h1 {
-  font-size: clamp(2.5rem, 4.9vw, 4.5rem);
+  font-size: clamp(2.4rem, min(4.9vw, 7.4svh), 4.5rem);
 }
 h2,
 .h2 {
@@ -364,21 +364,26 @@ main {
 
 /* ---------- Héros ---------- */
 .hero {
+  max-width: 1680px;
+  margin-inline: auto;
   min-height: calc(100svh - var(--nav));
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
   align-items: stretch;
 }
 .hero__text {
-  padding: var(--s8) var(--s8) var(--s8) var(--gut);
-  padding-left: max(var(--gut), calc((100vw - var(--wrap)) / 2));
+  padding: clamp(24px, 6svh, 64px) var(--s8) clamp(24px, 6svh, 64px) var(--gut);
+  padding-left: max(var(--gut), calc((min(100vw, 1680px) - var(--wrap)) / 2));
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: var(--s5);
+  gap: clamp(12px, 2.6svh, 24px);
 }
 .hero__text .lede {
   max-width: 30em;
+}
+.hero__text .actions {
+  margin-top: var(--s2);
 }
 .hero__fact {
   display: flex;
@@ -404,6 +409,7 @@ main {
   position: absolute;
   inset: 0;
   height: 100%;
+  aspect-ratio: auto !important;
 }
 .hero--page {
   min-height: 0;
@@ -411,7 +417,7 @@ main {
 }
 .hero--page .hero__text {
   padding: var(--s9) var(--gut) var(--s8);
-  padding-left: max(var(--gut), calc((100vw - var(--wrap)) / 2));
+  padding-left: max(var(--gut), calc((min(100vw, 1680px) - var(--wrap)) / 2));
   max-width: none;
 }
 .hero--page h1 {
@@ -516,9 +522,6 @@ main {
 }
 a.card:hover {
   transform: translateY(-2px);
-}
-.card .photo {
-  aspect-ratio: 4 / 5;
 }
 .card__body {
   display: grid;
@@ -968,9 +971,6 @@ a.region:hover {
   .grid--2,
   .steps {
     grid-template-columns: 1fr;
-  }
-  .card .photo {
-    aspect-ratio: 4 / 3;
   }
   .actions {
     flex-direction: column;

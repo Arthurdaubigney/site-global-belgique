@@ -59,7 +59,7 @@ export default function Page() {
               </p>
             </div>
           </div>
-          <Photo img={IMG.horloge} ratio="4/5" sizes="(max-width: 960px) 100vw, 50vw" />
+          <Photo img={IMG.horloge} />
         </div>
       </section>
 

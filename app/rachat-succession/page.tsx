@@ -49,7 +49,7 @@ export default function Page() {
 
       <section className="section band--soft" aria-labelledby="succession-title">
         <div className="wrap split">
-          <Photo img={IMG.candelabres} ratio="1/1" sizes="(max-width: 960px) 100vw, 50vw" />
+          <Photo img={IMG.candelabres} />
           <div className="split__text">
             <h2 id="succession-title">Un inventaire chiffré, utile au notaire et aux héritiers</h2>
             <div className="prose">
@@ -71,7 +71,7 @@ export default function Page() {
 
       <section className="section" aria-labelledby="rachat-title">
         <div className="wrap split split--rev">
-          <Photo img={IMG.tasse} ratio="4/3" sizes="(max-width: 960px) 100vw, 50vw" />
+          <Photo img={IMG.tasse} />
           <div className="split__text">
             <h2 id="rachat-title">Une offre ferme pour vos objets d’art et antiquités</h2>
             <ul className="checks">
